@@ -720,7 +720,7 @@
             min-height: 100vh;
             padding-top: 120px;
             padding-bottom: 90px;
-            background-color: #ded8cb;
+            background-color: var(--bg-light);
             border-top: 1px solid var(--border-line);
             display: flex;
             align-items: center;
@@ -794,20 +794,6 @@
             margin-bottom: 3px;
         }
 
-        .doc-stamp {
-            position: absolute;
-            bottom: 8px;
-            right: 8px;
-            border: 1.5px solid #b38b43;
-            color: #b38b43;
-            font-family: var(--font-bebas);
-            font-size: 0.65rem;
-            padding: 2px 6px;
-            border-radius: 2px;
-            transform: rotate(-8deg);
-            letter-spacing: 0.05em;
-        }
-
         .doc-graph {
             width: 100%;
             height: 35px;
@@ -847,49 +833,33 @@
 
         .video-main-layout {
             display: grid;
-            grid-template-columns: 1fr 380px;
-            gap: 32px;
-            align-items: start;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            align-items: stretch;
             margin-top: 30px;
         }
 
-        .video-player-wrapper {
-            position: relative;
-            width: 100%;
-            padding-top: 56.25%;
-            background: #000000;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--border-line);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-        }
-
-        .video-player-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
         .video-playlist {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            max-height: 520px;
-            overflow-y: auto;
-            padding-right: 6px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+            max-width: 980px;
+            margin: 0 auto;
+            overflow: visible;
+            padding: 0;
         }
 
         .video-thumb-card {
             display: flex;
-            gap: 14px;
+            flex-direction: column;
+            gap: 12px;
             background: #ffffff;
             border: 1px solid var(--border-line);
             border-radius: 6px;
             padding: 12px;
             cursor: pointer;
+            color: inherit;
+            text-decoration: none;
             transition: all 0.25s ease;
             box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
@@ -897,14 +867,14 @@
         .video-thumb-card:hover, .video-thumb-card.active {
             border-color: var(--accent-gold);
             background: rgba(179, 139, 67, 0.05);
-            transform: translateX(4px);
+            transform: translateY(-3px);
         }
 
         .video-thumb-preview {
             position: relative;
-            width: 110px;
-            height: 70px;
-            background: #1c222b;
+            width: 100%;
+            height: 138px;
+            background: #f4f1eb;
             border-radius: 4px;
             overflow: hidden;
             flex-shrink: 0;
@@ -916,7 +886,7 @@
         .video-thumb-preview img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
         }
 
         .play-icon {
@@ -940,11 +910,11 @@
         .video-thumb-info {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
         }
 
         .video-thumb-title {
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             font-weight: 700;
             color: var(--text-main);
             line-height: 1.3;
@@ -1254,7 +1224,7 @@
                 </h1>
                 
                 <p class="hero-subtitle">
-                    CRO / CFO-1, эксперт инвестиционных и инфраструктурных проектов в транспортной отрасли с 16-летним опытом в АО «Государственная транспортная лизинговая компания». Построение ERM-систем, управление рисками масштабных инвестпроектов, экспертная оценка сделок и сохранение P&L в условиях высокой рыночной неопределенности[cite: 17, 18, 19, 20, 21, 22].
+                    CRO / CFO-1, эксперт инвестиционных и инфраструктурных проектов в транспортной отрасли с 16-летним опытом в АО «Государственная транспортная лизинговая компания». Построение ERM-систем, управление рисками масштабных инвестпроектов, экспертная оценка сделок и сохранение P&L в условиях высокой рыночной неопределенности.
                 </p>
 
                 <div class="hero-actions">
@@ -1267,9 +1237,9 @@
                     <button class="tn-atom-btn-gold" data-popup="popupHobbies">
                         <span>увлечения</span>
                     </button>
-                    <button class="tn-atom-btn-gold" data-popup="popupTraining">
+                    <a href="#training" class="tn-atom-btn-gold">
                         <span>программа обучения</span>
-                    </button>
+                    </a>
                 </div>
             </div>
 
@@ -1309,11 +1279,11 @@
                 </div>
                 <div class="stat-item">
                     <div class="stat-num">1500+</div>
-                    <div class="stat-label">защищенных заключений по проектам транспортной отрасли с рассмотренным портфелем более 2,8 млрд руб.[cite: 19]</div>
+                    <div class="stat-label">защищенных заключений по проектам транспортной отрасли с рассмотренным портфелем более 2,8 млрд руб.</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-num">&lt; 2%</div>
-                    <div class="stat-label">минимальный уровень дебиторской задолженности[cite: 18, 20]</div>
+                    <div class="stat-label">минимальный уровень дебиторской задолженности</div>
                 </div>
             </div>
 
@@ -1358,7 +1328,7 @@
                 <span class="hero-badge">Авторский практикум</span>
                 <h2 class="section-title">Управление рисками и финансовая устойчивость</h2>
                 <p class="hero-subtitle" style="margin-bottom:0;">
-                    Практико-ориентированные модули для руководителей, финансовых директоров и риск-менеджеров. Принятие решений в условиях неопределенности на основе реальных финансовых моделей[cite: 17, 18, 19, 20, 21, 22].
+                    Практико-ориентированные модули для руководителей, финансовых директоров и риск-менеджеров. Принятие решений в условиях неопределенности на основе реальных финансовых моделей.
                 </p>
             </div>
 
@@ -1370,7 +1340,7 @@
                             <div class="card-day">Модуль 01</div>
                             <h3 class="card-title">Корпоративная система ERM</h3>
                             <p class="card-desc">
-                                Переход от формальных регламентов к практическому принятию управленческих решений. Определение риск-аппетита компании и защита капитала[cite: 18].
+                                Переход от формальных регламентов к практическому принятию управленческих решений. Определение риск-аппетита компании и защита капитала.
                             </p>
                         </div>
                         <button class="btn-card" data-popup="pop1">Подробнее о модуле</button>
@@ -1381,7 +1351,7 @@
                             <div class="card-day">Модуль 02</div>
                             <h3 class="card-title">Кредитный риск и контрагенты</h3>
                             <p class="card-desc">
-                                Выявление сигналов дефолта задолго до возникновения просрочки. Система индикаторов раннего предупреждения (KRI) и лимитная политика[cite: 20].
+                                Выявление сигналов дефолта задолго до возникновения просрочки. Система индикаторов раннего предупреждения (KRI) и лимитная политика.
                             </p>
                         </div>
                         <button class="btn-card" data-popup="pop2">Подробнее о модуле</button>
@@ -1392,7 +1362,7 @@
                             <div class="card-day">Модуль 03</div>
                             <h3 class="card-title">Финансовая устойчивость</h3>
                             <p class="card-desc">
-                                Стресс-тестирование ликвидности, контроль банковских ковенантов и внедрение комитета КУАП (ALCO) для баланса активов и пассивов[cite: 17].
+                                Стресс-тестирование ликвидности, контроль банковских ковенантов и внедрение комитета КУАП (ALCO) для баланса активов и пассивов.
                             </p>
                         </div>
                         <button class="btn-card" data-popup="pop3">Подробнее о модуле</button>
@@ -1403,7 +1373,7 @@
                             <div class="card-day">Модуль 04</div>
                             <h3 class="card-title">Экспертиза инвестпроектов</h3>
                             <p class="card-desc">
-                                Оценка масштабных капиталоемких проектов. Выявление скрытых рисков на стыках этапов, проверка чувствительности и сквозная аттестация[cite: 19].
+                                Оценка масштабных капиталоемких проектов. Выявление скрытых рисков на стыках этапов, проверка чувствительности и сквозная аттестация.
                             </p>
                         </div>
                         <button class="btn-card" data-popup="pop4">Подробнее о модуле</button>
@@ -1439,14 +1409,13 @@
                 <div class="doc-title">Стресс-тест: три удара по плану</div>
                 <div class="doc-body">
                     <ul>
-                        <li>Выручка −30% (охлаждение спроса)[cite: 24]</li>
-                        <li>Ставка +5 п.п. (рост расходов)[cite: 24]</li>
-                        <li>Затраты ×1,5 (топливо, металл, ФОТ)[cite: 24]</li>
+                        <li>Выручка −30% (охлаждение спроса)</li>
+                        <li>Ставка +5 п.п. (рост расходов)</li>
+                        <li>Затраты ×1,5 (топливо, металл, ФОТ)</li>
                     </ul>
                     <div class="doc-graph"><div class="doc-graph-line"></div></div>
-                    <strong>Проверка ковенантов и ликвидности</strong>[cite: 24]
+                    <strong>Проверка ковенантов и ликвидности</strong>
                 </div>
-                <div class="doc-stamp">УТВЕРЖДЕНО</div>
             </div>
 
             <div class="doc-sheet doc-2">
@@ -1454,43 +1423,40 @@
                 <div class="doc-title">Система KRI-индикаторов («лампочки»)</div>
                 <div class="doc-body">
                     <ul>
-                        <li>Динамика выручки к плану[cite: 27]</li>
-                        <li>Запросы на отсрочку платежей[cite: 27]</li>
-                        <li>Концентрация на 1 контрагенте[cite: 27]</li>
-                        <li>Смена собственников/аудитора[cite: 27]</li>
+                        <li>Динамика выручки к плану</li>
+                        <li>Запросы на отсрочку платежей</li>
+                        <li>Концентрация на 1 контрагенте</li>
+                        <li>Смена собственников/аудитора</li>
                     </ul>
-                    <p style="margin-top: 4px; font-weight: 600; color: #b38b43;">Цель: просрочка &lt; 2%</p>[cite: 27]
+                    <p style="margin-top: 4px; font-weight: 600; color: #b38b43;">Цель: просрочка &lt; 2%</p>
                 </div>
-                <div class="doc-stamp">СЕКРЕТНО</div>
             </div>
 
             <div class="doc-sheet doc-3">
                 <div class="doc-header">День 3 · Реестр ковенантов</div>
                 <div class="doc-title">Комитет КУАП (ALCO)</div>
                 <div class="doc-body">
-                    <p>Еженедельный разбор 4 показателей:[cite: 24]</p>
+                    <p>Еженедельный разбор 4 показателей:</p>
                     <ul>
-                        <li>1. Подушка ликвидности[cite: 24]</li>
-                        <li>2. График платежей на квартал[cite: 24]</li>
-                        <li>3. Самый жесткий ковенант[cite: 24]</li>
-                        <li>4. Открытые валютные позиции[cite: 24]</li>
+                        <li>1. Подушка ликвидности</li>
+                        <li>2. График платежей на квартал</li>
+                        <li>3. Самый жесткий ковенант</li>
+                        <li>4. Открытые валютные позиции</li>
                     </ul>
                 </div>
-                <div class="doc-stamp">В РАБОТЕ</div>
             </div>
 
             <div class="doc-sheet doc-4">
                 <div class="doc-header">День 4 · Инвестпроекты</div>
                 <div class="doc-title">Экспертиза проектов сухогрузного флота</div>
                 <div class="doc-body">
-                    <p><strong>Судно RSD59 (АЧБ):</strong>[cite: 29]</p>
+                    <p><strong>Судно RSD59 (АЧБ):</strong></p>
                     <ul>
-                        <li>Порог ТЧЭ: ≈8 500 $/сутки[cite: 29]</li>
-                        <li>OPEX: ~2 800 $/сутки[cite: 29]</li>
-                        <li>Чувствительность к ставке фрахта[cite: 29]</li>
+                        <li>Порог ТЧЭ: ≈8 500 $/сутки</li>
+                        <li>OPEX: ~2 800 $/сутки</li>
+                        <li>Чувствительность к ставке фрахта</li>
                     </ul>
                 </div>
-                <div class="doc-stamp">ПРОЕКТ</div>
             </div>
 
             <div class="doc-sheet doc-5">
@@ -1498,9 +1464,9 @@
                 <div class="doc-title">Логика рейтинга контрагента</div>
                 <div class="doc-body">
                     <ul>
-                        <li><strong>Финансы:</strong> долг / EBITDA, поток[cite: 27]</li>
-                        <li><strong>Отрасль:</strong> фаза цикла, экспорт[cite: 27]</li>
-                        <li><strong>Поведение:</strong> дисциплина[cite: 27]</li>
+                        <li><strong>Финансы:</strong> долг / EBITDA, поток</li>
+                        <li><strong>Отрасль:</strong> фаза цикла, экспорт</li>
+                        <li><strong>Поведение:</strong> дисциплина</li>
                     </ul>
                 </div>
             </div>
@@ -1509,22 +1475,21 @@
                 <div class="doc-header">День 4 · Риски проектов</div>
                 <div class="doc-title">Оценка проектов зерновозов</div>
                 <div class="doc-body">
-                    <p>Профицит парка vs Ставка аренды[cite: 28].</p>
-                    <p>Колебания цикла до 100% за год[cite: 28].</p>
+                    <p>Профицит парка vs Ставка аренды.</p>
+                    <p>Колебания цикла до 100% за год.</p>
                 </div>
-                <div class="doc-stamp">АППРУВ</div>
             </div>
 
             <div class="doc-sheet doc-7">
                 <div class="doc-header">Карта рисков компании</div>
                 <div class="doc-title">Топ-10 рисков с владельцами</div>
-                <div class="doc-body">Таблица вероятностей и ущерба[cite: 26]...</div>
+                <div class="doc-body">Таблица вероятностей и ущерба...</div>
             </div>
 
             <div class="doc-sheet doc-8">
                 <div class="doc-header">Резюме проекта</div>
                 <div class="doc-title">Защита капитала в кризис</div>
-                <div class="doc-body">1500+ заключений по проектам[cite: 23, 25, 26]...</div>
+                <div class="doc-body">1500+ заключений по проектам...</div>
             </div>
 
         </div>
@@ -1535,20 +1500,17 @@
                 <span class="hero-badge">Видеоматериалы &amp; Презентация</span>
                 <h2 class="section-title">Видеообзор обучающего курса</h2>
                 <p class="hero-subtitle" style="margin-bottom: 0;">
-                    Посмотрите фрагменты лекций, разборы реальных финансовых кейсов и ключевые тезисы программы управления рисками[cite: 17, 18, 19, 20, 21, 22].
+                    Посмотрите фрагменты лекций, разборы реальных финансовых кейсов и ключевые тезисы программы управления рисками.
                 </p>
             </div>
 
             <div class="video-main-layout">
                 <!-- Главный плеер Kinescope -->
-                <div class="video-player-wrapper">
-                    <iframe id="kinescopePlayer" src="https://app.kinescope.io/embed/8cea5882-922d-43b0-b97f-9a05cdfb0d76" allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer" allowfullscreen></iframe>
-                </div>
 
                 <!-- Список видеороликов курса -->
                 <div class="video-playlist">
                     
-                    <div class="video-thumb-card active" data-video-id="8cea5882-922d-43b0-b97f-9a05cdfb0d76">
+                    <a class="video-thumb-card active" href="https://app.kinescope.io/video/detail/8cea5882-922d-43b0-b97f-9a05cdfb0d76" target="_blank" rel="noopener noreferrer" data-video-id="8cea5882-922d-43b0-b97f-9a05cdfb0d76" data-video-url="https://app.kinescope.io/video/detail/8cea5882-922d-43b0-b97f-9a05cdfb0d76">
                         <div class="video-thumb-preview">
                             <img src="https://i.yapx.ru/eKIrY.jpg" alt="Превью 1">
                             <div class="play-icon">
@@ -1559,9 +1521,9 @@
                             <div class="video-thumb-title">Вводная лекция: Система ERM и методология</div>
                             <div class="video-thumb-duration">Смотреть ролик</div>
                         </div>
-                    </div>
+                    </a>
 
-                    <div class="video-thumb-card" data-video-id="6618e4d8-45d8-4b64-b4e9-d2ce14fd0b78">
+                    <a class="video-thumb-card" href="https://app.kinescope.io/video/detail/6618e4d8-45d8-4b64-b4e9-d2ce14fd0b78" target="_blank" rel="noopener noreferrer" data-video-id="6618e4d8-45d8-4b64-b4e9-d2ce14fd0b78" data-video-url="https://app.kinescope.io/video/detail/6618e4d8-45d8-4b64-b4e9-d2ce14fd0b78">
                         <div class="video-thumb-preview">
                             <img src="https://i.yapx.ru/eKGqY.jpg" alt="Превью 2">
                             <div class="play-icon">
@@ -1572,9 +1534,9 @@
                             <div class="video-thumb-title">Кредитный риск и KRI-индикаторы («лампочки»)</div>
                             <div class="video-thumb-duration">Смотреть ролик</div>
                         </div>
-                    </div>
+                    </a>
 
-                    <div class="video-thumb-card" data-video-id="4691c7f3-6063-4e40-9987-cfb01e871387">
+                    <a class="video-thumb-card" href="https://app.kinescope.io/video/detail/4691c7f3-6063-4e40-9987-cfb01e871387" target="_blank" rel="noopener noreferrer" data-video-id="4691c7f3-6063-4e40-9987-cfb01e871387" data-video-url="https://app.kinescope.io/video/detail/4691c7f3-6063-4e40-9987-cfb01e871387">
                         <div class="video-thumb-preview">
                             <img src="https://i.yapx.ru/eKIio.jpg" alt="Превью 3">
                             <div class="play-icon">
@@ -1585,7 +1547,7 @@
                             <div class="video-thumb-title">Стресс-тестирование ликвидности и ковенантов</div>
                             <div class="video-thumb-duration">Смотреть ролик</div>
                         </div>
-                    </div>
+                    </a>
 
                 </div>
             </div>
@@ -1615,19 +1577,19 @@
                     </p>
                     
                     <strong>Профессиональный профиль</strong>
-                    Более 18 лет работы в сфере корпоративного Risk-Management и обеспечения финансовой устойчивости компании. Экспертиза включает построение систем ERM с нуля, кредитный анализ, оценку контрагентов, контроль банковских ковенантов, стресс-тестирование и управление ликвидностью в капиталоемких отраслях[cite: 17, 18, 20].
+                    Более 18 лет работы в сфере корпоративного Risk-Management и обеспечения финансовой устойчивости компании. Экспертиза включает построение систем ERM с нуля, кредитный анализ, оценку контрагентов, контроль банковских ковенантов, стресс-тестирование и управление ликвидностью в капиталоемких отраслях.
 
                     <strong>Ключевой опыт: АО «ГТЛК», 2009 — 2025 гг.</strong>
                     Директор по управлению рисками. Руководство командой из 15 специалистов.
                     <ul>
-                        <li>Выстроена с нуля ERM-система, интегрированная в контур принятия инвестиционных и финансовых решений[cite: 18].</li>
-                        <li>Подготовлено и защищено более 1500 заключений по проектам в сферах ж/д, авиации, водного транспорта, автотехники и инфраструктуры с общим портфелем свыше 2,8 млрд руб[cite: 19].</li>
-                        <li>Снижен уровень дебиторской задолженности до значения менее 2% благодаря внедрению автоматизированной системы KRI-индикаторов[cite: 18, 20].</li>
-                        <li>Разработана и внедрена система КУАП для сбалансированного управления активами, пассивами и ликвидностью[cite: 17].</li>
+                        <li>Выстроена с нуля ERM-система, интегрированная в контур принятия инвестиционных и финансовых решений.</li>
+                        <li>Подготовлено и защищено более 1500 заключений по проектам в сферах ж/д, авиации, водного транспорта, автотехники и инфраструктуры с общим портфелем свыше 2,8 млрд руб.</li>
+                        <li>Снижен уровень дебиторской задолженности до значения менее 2% благодаря внедрению автоматизированной системы KRI-индикаторов.</li>
+                        <li>Разработана и внедрена система КУАП для сбалансированного управления активами, пассивами и ликвидностью.</li>
                     </ul>
 
                     <strong>Образование и квалификация</strong>
-                    Финансовый университет при Правительстве РФ (2010 г., Экономика и антикризисное управление). ISO 31000 Risk Management (2021 г.), Mini MBA EY (2020 г.)[cite: 18].
+                    Финансовый университет при Правительстве РФ (2010 г., Экономика и антикризисное управление). ISO 31000 Risk Management (2021 г.), Mini MBA EY (2020 г.).
                 </div>
                 
                 <div class="t390__btn-wrapper">
@@ -1685,7 +1647,7 @@
             <div class="t390__wrapper">
                 <h3 class="t390__title">Модуль 1. Корпоративная система ERM</h3>
                 <div class="t390__descr">
-                    Переход от формальных регламентов к принятию управленческих решений[cite: 18]. Определение риск-аппетита компании, формирование карты рисков и закрепление владельцев рисков[cite: 18].
+                    Переход от формальных регламентов к принятию управленческих решений. Определение риск-аппетита компании, формирование карты рисков и закрепление владельцев рисков.
                 </div>
             </div>
         </div>
@@ -1697,7 +1659,7 @@
             <div class="t390__wrapper">
                 <h3 class="t390__title">Модуль 2. Кредитный риск и контрагенты</h3>
                 <div class="t390__descr">
-                    Система KRI-индикаторов раннего предупреждения («лампочки»), оценка финансовых групп холдингового типа и работа по удержанию просрочки на уровне &lt; 2%[cite: 18, 20].
+                    Система KRI-индикаторов раннего предупреждения («лампочки»), оценка финансовых групп холдингового типа и работа по удержанию просрочки на уровне &lt; 2%.
                 </div>
             </div>
         </div>
@@ -1709,7 +1671,7 @@
             <div class="t390__wrapper">
                 <h3 class="t390__title">Модуль 3. Финансовая устойчивость</h3>
                 <div class="t390__descr">
-                    Стресс-тестирование кассовых разрывов при ключевых шоках, ведение реестра банковских ковенантов и организация работы Комитета КУАП (ALCO)[cite: 17].
+                    Стресс-тестирование кассовых разрывов при ключевых шоках, ведение реестра банковских ковенантов и организация работы Комитета КУАП (ALCO).
                 </div>
             </div>
         </div>
@@ -1721,7 +1683,7 @@
             <div class="t390__wrapper">
                 <h3 class="t390__title">Модуль 4. Экспертиза инвестпроектов</h3>
                 <div class="t390__descr">
-                    Выявление скрытых рисков на стыках этапов инвестпроектов, проверка чувствительности моделей к ставкам и ценам, сквозная зашита решений[cite: 19].
+                    Выявление скрытых рисков на стыках этапов инвестпроектов, проверка чувствительности моделей к ставкам и ценам, сквозная защита решений.
                 </div>
             </div>
         </div>
@@ -1795,11 +1757,18 @@
             const kinescopeIframe = document.getElementById('kinescopePlayer');
 
             videoCards.forEach(card => {
-                card.addEventListener('click', () => {
+                card.addEventListener('click', (e) => {
                     videoCards.forEach(c => c.classList.remove('active'));
                     card.classList.add('active');
                     const videoId = card.getAttribute('data-video-id');
-                    kinescopeIframe.src = `https://app.kinescope.io/embed/${videoId}`;
+                    const videoUrl = card.getAttribute('data-video-url') || card.getAttribute('href');
+                    if (kinescopeIframe) {
+                        e.preventDefault();
+                        kinescopeIframe.src = `https://app.kinescope.io/embed/${videoId}`;
+                    } else if (videoUrl) {
+                        e.preventDefault();
+                        window.open(videoUrl, '_blank', 'noopener');
+                    }
                 });
             });
 
