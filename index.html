@@ -933,11 +933,23 @@
         /* ------------------- СЛАЙД 4: КАЛЬКУЛЯТОР РИСКОВ ------------------- */
         .section-calculator {
             position: relative;
+            width: 100%;
+            max-width: 100vw;
             min-height: 100vh;
             padding-top: 120px;
             padding-bottom: 90px;
             background-color: var(--bg-light);
             border-top: 1px solid var(--border-line);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section-calculator #app {
+            width: 100%;
+            max-width: 1080px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .calc-card-custom {
@@ -1162,8 +1174,8 @@
         .hero-container,
         .section-container,
         .quiz-container,
-        #calculator {
-            max-width: min(1200px, 100%);
+        #calculator #app {
+            max-width: min(1080px, 100%);
         }
 
         .hero-title,
