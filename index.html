@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Наталья Журавлева — CRO / CFO-1 | Обучение и Управление рисками</title>
-    
+    <link rel="icon" href="data:,">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <style>
+        [v-cloak] { display: none !important; }
+
         :root {
             --bg-light: #f9f8f6;
             --text-main: #1c222b;
@@ -17,7 +20,7 @@
             --accent-gold: #b38b43;
             --accent-gold-hover: #967332;
             --border-line: rgba(179, 139, 67, 0.3);
-            
+
             --font-serif: 'Cormorant Garamond', Georgia, serif;
             --font-sans: 'Montserrat', Arial, sans-serif;
             --font-bebas: 'Bebas Neue', Arial, sans-serif;
@@ -927,6 +930,416 @@
             font-weight: 600;
         }
 
+        /* ------------------- СЛАЙД 4: КАЛЬКУЛЯТОР РИСКОВ ------------------- */
+        .section-calculator {
+            position: relative;
+            min-height: 100vh;
+            padding-top: 120px;
+            padding-bottom: 90px;
+            background-color: var(--bg-light);
+            border-top: 1px solid var(--border-line);
+        }
+
+        .calc-card-custom {
+            background: #ffffff;
+            border: 1px solid var(--border-line);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+        }
+
+        .calc-input-custom {
+            background-color: #f4f3ef;
+            border: 1px solid rgba(179, 139, 67, 0.4);
+            border-radius: 6px;
+            color: var(--text-main);
+            transition: all 0.2s ease;
+        }
+
+        .calc-input-custom:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(179, 139, 67, 0.15);
+        }
+
+        .btn-calc-submit {
+            background-color: var(--accent-gold);
+            color: #ffffff;
+            border-radius: 6px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            transition: all 0.25s ease;
+        }
+
+        .btn-calc-submit:hover {
+            background-color: var(--accent-gold-hover);
+            transform: translateY(-1px);
+        }
+
+
+        /* ------------------- СЛАЙД 5: ТЕСТ ЗРЕЛОСТИ СУР ------------------- */
+        .section-sur-quiz {
+            position: relative;
+            min-height: 100vh;
+            padding-top: 120px;
+            padding-bottom: 90px;
+            background-color: var(--bg-light);
+            border-top: 1px solid var(--border-line);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quiz-container {
+            background: #ffffff;
+            width: 100%;
+            max-width: 820px;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-line);
+            position: relative;
+            z-index: 5;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: #f4f3ef;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-line);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--accent-gold);
+            width: 0%;
+            transition: width 0.4s ease;
+        }
+
+        .question-card {
+            background: #fdfdfc;
+            border: 1px solid var(--border-line);
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .question-title {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-main);
+            line-height: 1.4;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .option-btn {
+            padding: 14px 18px;
+            background: #ffffff;
+            border: 1px solid var(--border-line);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-main);
+            transition: all 0.25s ease;
+            text-align: center;
+        }
+
+        .option-btn:hover {
+            border-color: var(--accent-gold);
+            background: #fbfbf9;
+            color: var(--accent-gold);
+        }
+
+        .option-btn.selected {
+            border-color: var(--accent-gold);
+            background: var(--accent-gold);
+            color: #ffffff;
+        }
+
+        .quiz-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-line);
+        }
+
+        .score-badge {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 24px auto;
+            font-weight: 700;
+            background: #ffffff;
+            border: 3px solid var(--accent-gold);
+            box-shadow: 0 10px 25px rgba(179, 139, 67, 0.2);
+            color: var(--text-main);
+        }
+
+        .score-value {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            line-height: 1;
+            color: var(--accent-gold);
+        }
+
+        .score-max {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        .breakdown-list {
+            text-align: left;
+            background: #fdfdfc;
+            border: 1px solid var(--border-line);
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 24px;
+            margin-bottom: 28px;
+        }
+
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-line);
+            font-size: 0.9rem;
+        }
+
+        .breakdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+
+
+
+        /* ------------------- МОБИЛЬНАЯ СТАБИЛЬНОСТЬ ------------------- */
+        html,
+        body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        img,
+        svg,
+        iframe,
+        table {
+            max-width: 100%;
+        }
+
+        .header,
+        .hero,
+        .section-training,
+        .section-video,
+        .section-calculator,
+        .section-sur-quiz,
+        .t-popup {
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+
+        .hero-container,
+        .section-container,
+        .quiz-container,
+        #calculator {
+            max-width: min(1200px, 100%);
+        }
+
+        .hero-title,
+        .section-title,
+        .card-title,
+        .video-thumb-title,
+        .question-title,
+        .t390__title,
+        .t390__descr,
+        .stat-label,
+        .card-desc {
+            overflow-wrap: anywhere;
+        }
+
+        .section-calculator .overflow-x-auto {
+            max-width: 100%;
+        }
+
+        @media (max-width: 760px) {
+            .header {
+                padding: 10px 12px;
+            }
+
+            .header-inner {
+                gap: 10px;
+                align-items: flex-start;
+            }
+
+            .brand-logo {
+                font-size: 1.1rem;
+                line-height: 1.15;
+                flex: 0 0 auto;
+            }
+
+            .nav-links {
+                flex: 1 1 auto;
+                justify-content: flex-end;
+                gap: 8px 10px;
+                flex-wrap: wrap;
+                min-width: 0;
+            }
+
+            .nav-links a {
+                font-size: 0.66rem;
+                letter-spacing: 0;
+                white-space: nowrap;
+            }
+
+            .hero,
+            .section-training,
+            .section-video,
+            .section-calculator,
+            .section-sur-quiz {
+                min-height: auto;
+                padding-top: 96px;
+                padding-bottom: 56px;
+            }
+
+            .hero-container,
+            .section-container {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .hero-title,
+            .section-title {
+                font-size: 2.1rem;
+                line-height: 1.05;
+            }
+
+            .hero-subtitle {
+                font-size: 0.92rem;
+            }
+
+            .hero-actions {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .hero-actions .btn,
+            .hero-actions .tn-atom-btn-gold {
+                width: 100%;
+                max-width: 340px;
+            }
+
+            .orbit-wrapper {
+                width: 240px;
+                height: 240px;
+                margin-bottom: 28px;
+            }
+
+            .photo-center {
+                width: 220px;
+                height: 220px;
+            }
+
+            .orbit-line,
+            .orbit-container,
+            .animated-helicopter,
+            .animated-train,
+            .animated-train-track {
+                display: none;
+            }
+
+            .video-playlist {
+                grid-template-columns: 1fr;
+            }
+
+            .video-thumb-preview {
+                height: 190px;
+            }
+
+            .section-calculator #app {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .section-calculator .grid-cols-4 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .section-calculator table {
+                min-width: 0;
+                table-layout: fixed;
+            }
+
+            .section-calculator th,
+            .section-calculator td {
+                overflow-wrap: anywhere;
+            }
+
+            .quiz-container {
+                padding: 22px 16px;
+                border-radius: 8px;
+            }
+
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quiz-controls {
+                gap: 12px;
+            }
+
+            .quiz-controls .btn {
+                flex: 1 1 0;
+                padding-left: 12px !important;
+                padding-right: 12px !important;
+            }
+
+            .breakdown-item {
+                gap: 12px;
+                align-items: flex-start;
+            }
+
+            .carousel-container {
+                overflow: visible;
+            }
+
+            .carousel-track {
+                flex-direction: column;
+                transform: none !important;
+                gap: 16px;
+            }
+
+            .carousel-card {
+                width: 100%;
+                flex: 0 0 auto;
+            }
+
+            .carousel-controls,
+            .carousel-dots {
+                display: none;
+            }
+        }
+
         /* POPUP MODALS */
         .t-popup {
             display: none;
@@ -1182,12 +1595,19 @@
                 flex: 0 0 100%;
             }
             .orbit-wrapper {
-                width: 340px;
-                height: 340px;
+                width: 240px;
+                height: 240px;
             }
             .photo-center {
-                width: 200px;
-                height: 200px;
+                width: 220px;
+                height: 220px;
+            }
+            .orbit-line,
+            .orbit-container,
+            .animated-helicopter,
+            .animated-train,
+            .animated-train-track {
+                display: none;
             }
             .hero-stats {
                 grid-template-columns: 1fr;
@@ -1197,6 +1617,9 @@
             }
         }
     </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
 </head>
 <body>
 
@@ -1207,7 +1630,9 @@
             <nav class="nav-links">
                 <a href="#hero">Обо мне</a>
                 <a href="#training">Программы</a>
-                <a href="#video">Видеообзор</a>
+                <a href="#video">Видео</a>
+                <a href="#calculator">Калькулятор</a>
+                <a href="#sur-quiz">Тест СУР</a>
             </nav>
         </div>
     </header>
@@ -1215,14 +1640,14 @@
     <!-- ------------------- СЛАЙД 1: ГЛАВНАЯ ------------------- -->
     <section class="hero" id="hero">
         <div class="hero-container">
-            
+
             <div class="hero-content">
                 <span class="hero-badge">Управление рисками & Устойчивость</span>
-                
+
                 <h1 class="hero-title">
                     Защита капитала и <em>финансовая устойчивость</em> бизнеса
                 </h1>
-                
+
                 <p class="hero-subtitle">
                     CRO / CFO-1, эксперт инвестиционных и инфраструктурных проектов в транспортной отрасли с 16-летним опытом в АО «Государственная транспортная лизинговая компания». Построение ERM-систем, управление рисками масштабных инвестпроектов, экспертная оценка сделок и сохранение P&L в условиях высокой рыночной неопределенности.
                 </p>
@@ -1230,7 +1655,7 @@
                 <div class="hero-actions">
                     <a href="mailto:zhurnatalia@mail.ru?subject=Запрос%20на%20консультацию" class="btn btn-gold">Обсудить сотрудничество</a>
                     <a href="tel:+79169921784" class="btn btn-outline">+7 (916) 992-17-84</a>
-                    
+
                     <button class="tn-atom-btn-gold" data-popup="popupResume">
                         <span>резюме</span>
                     </button>
@@ -1245,7 +1670,7 @@
 
             <div class="orbit-wrapper">
                 <div class="orbit-line"></div>
-                
+
                 <div class="photo-center">
                     <img src="https://i.yapx.ru/eKGqY.jpg" alt="Наталья Журавлева">
                 </div>
@@ -1292,7 +1717,7 @@
 
     <!-- ------------------- СЛАЙД 2: ПРОГРАММЫ ------------------- -->
     <section class="section-training" id="training">
-        
+
         <div class="animated-helicopter">
             <div class="helicopter-blade"></div>
             <div class="helicopter-body"></div>
@@ -1323,7 +1748,7 @@
         </div>
 
         <div class="training-container">
-            
+
             <div class="section-header">
                 <span class="hero-badge">Авторский практикум</span>
                 <h2 class="section-title">Управление рисками и финансовая устойчивость</h2>
@@ -1334,7 +1759,7 @@
 
             <div class="carousel-wrapper">
                 <div class="carousel-track" id="carouselTrack">
-                    
+
                     <div class="carousel-card">
                         <div>
                             <div class="card-day">Модуль 01</div>
@@ -1384,7 +1809,7 @@
 
             <div class="carousel-controls">
                 <div class="carousel-dots" id="carouselDots"></div>
-                
+
                 <div class="carousel-arrows">
                     <button class="arrow-btn" id="prevBtn" aria-label="Назад">
                         <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
@@ -1400,10 +1825,10 @@
 
     <!-- ------------------- СЛАЙД 3: ВИДЕО ОБЗОР (С НАСТОЯЩИМИ ДОКУМЕНТАМИ НА ЗАДНЕМ ПЛАНЕ) ------------------- -->
     <section class="section-video" id="video">
-        
+
         <!-- Реалистичные документы презентации на заднем плане по аналогии с фото -->
         <div class="docs-bg-layer">
-            
+
             <div class="doc-sheet doc-1">
                 <div class="doc-header">День 3 · Финансовая устойчивость</div>
                 <div class="doc-title">Стресс-тест: три удара по плану</div>
@@ -1429,7 +1854,7 @@
                         <li>Смена собственников/аудитора</li>
                     </ul>
                     <p style="margin-top: 4px; font-weight: 600; color: #b38b43;">Цель: просрочка &lt; 2%</p>
-                </div>
+</div>
             </div>
 
             <div class="doc-sheet doc-3">
@@ -1495,7 +1920,7 @@
         </div>
 
         <div class="video-container">
-            
+
             <div class="section-header">
                 <span class="hero-badge">Видеоматериалы &amp; Презентация</span>
                 <h2 class="section-title">Видеообзор обучающего курса</h2>
@@ -1509,7 +1934,7 @@
 
                 <!-- Список видеороликов курса -->
                 <div class="video-playlist">
-                    
+
                     <a class="video-thumb-card active" href="https://app.kinescope.io/video/detail/8cea5882-922d-43b0-b97f-9a05cdfb0d76" target="_blank" rel="noopener noreferrer" data-video-id="8cea5882-922d-43b0-b97f-9a05cdfb0d76" data-video-url="https://app.kinescope.io/video/detail/8cea5882-922d-43b0-b97f-9a05cdfb0d76">
                         <div class="video-thumb-preview">
                             <img src="https://i.yapx.ru/eKIrY.jpg" alt="Превью 1">
@@ -1555,7 +1980,303 @@
         </div>
     </section>
 
-    <!-- ------------------- МОДАЛЬНЫЕ ОКНА ------------------- -->
+<!-- ------------------- СЛАЙД 4: КАЛЬКУЛЯТОР БИЗНЕС-РИСКОВ ------------------- -->
+    <section class="section-calculator" id="calculator">
+        <div id="app" v-cloak class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+
+            <div class="section-header">
+                <span class="hero-badge">Интерактивный инструмент</span>
+                <h2 class="section-title">Калькулятор бизнес-рисков</h2>
+                <p class="hero-subtitle" style="margin-bottom:0;">
+                    Оценка и квантификация ожидаемых финансовых потерь по кварталам. Выберите период, задайте параметры вероятности и ущерба для суммирования рисков.
+                </p>
+            </div>
+
+            <!-- Вкладки просмотра кварталов -->
+            <div class="flex items-center justify-center gap-2 bg-white p-2 rounded-xl border border-[var(--border-line)] max-w-lg mx-auto shadow-sm">
+                <span class="text-xs font-bold text-[var(--text-main)] uppercase tracking-wider mr-2">Просмотр:</span>
+                <button
+                    v-for="q in quarters"
+                    :key="q.id"
+                    @click="viewQuarter = q.id"
+                    :class="['px-4 py-2 rounded-lg text-xs font-bold transition flex items-center gap-2', viewQuarter === q.id ? 'bg-[var(--accent-gold)] text-white shadow-sm' : 'text-[var(--text-muted)] hover:bg-[#f4f3ef]']"
+                >
+                    {{ q.shortLabel }}
+                    <span v-if="quarterlySummaries[q.id].total > 0" :class="['w-2 h-2 rounded-full', viewQuarter === q.id ? 'bg-white' : 'bg-[var(--accent-gold)]']"></span>
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+                <!-- Левая колонка: Форма -->
+                <div class="lg:col-span-5 calc-card-custom p-6 space-y-6">
+                    <form @submit.prevent="handleCalculate" class="space-y-5">
+
+                        <!-- ШАГ 1: Квартал -->
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between">
+                                <label class="text-xs font-bold text-[var(--text-main)] uppercase tracking-wider">
+                                    1. Выберите квартал <span class="text-rose-500">*</span>
+                                </label>
+                                <span v-if="selectedQuarter" class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                                    ✓ {{ getQuarterLabel(selectedQuarter) }}
+                                </span>
+                            </div>
+
+                            <div class="grid grid-cols-4 gap-2">
+                                <button
+                                    v-for="q in quarters"
+                                    :key="q.id"
+                                    type="button"
+                                    @click="selectQuarter(q.id)"
+                                    :class="['py-2 px-1 rounded border text-xs font-bold transition flex flex-col items-center', selectedQuarter === q.id ? 'bg-[var(--accent-gold)] border-[var(--accent-gold)] text-white' : 'bg-[#f4f3ef] border-slate-200 text-[var(--text-main)] hover:border-[var(--accent-gold)]']"
+                                >
+                                    <span>{{ q.id }}</span>
+                                </button>
+                            </div>
+
+                            <div v-if="quarterError" class="p-2.5 bg-rose-50 border border-rose-200 rounded text-xs text-rose-700">
+                                <strong>Ошибка:</strong> Выберите квартал перед расчетом!
+                            </div>
+                        </div>
+
+                        <!-- ШАГ 2: Наименование -->
+                        <div>
+                            <label class="block text-xs font-bold text-[var(--text-main)] uppercase tracking-wider mb-1.5">
+                                2. Наименование риска
+                            </label>
+                            <input
+                                type="text"
+                                v-model="riskName"
+                                placeholder="Задержка поставок / Кассовый разрыв"
+                                class="w-full px-3.5 py-2.5 calc-input-custom text-sm"
+                            />
+                        </div>
+
+                        <!-- ШАГ 3: Вероятность -->
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between">
+                                <label class="text-xs font-bold text-[var(--text-main)] uppercase tracking-wider">
+                                    3. Вероятность события
+                                </label>
+                                <span class="text-sm font-black text-[var(--accent-gold)] bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
+                                    {{ probability }}%
+                                </span>
+                            </div>
+
+                            <input
+                                type="range"
+                                min="1"
+                                max="100"
+                                v-model.number="probability"
+                                class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#b38b43]"
+                            />
+
+                            <div class="grid grid-cols-2 gap-1.5 pt-1">
+                                <button
+                                    v-for="preset in probabilityPresets"
+                                    :key="preset.value"
+                                    type="button"
+                                    @click="probability = preset.value"
+                                    :class="['text-xs py-1 px-2 rounded border transition', probability === preset.value ? 'bg-[var(--accent-gold)] text-white border-[var(--accent-gold)] font-bold' : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50']"
+                                >
+                                    {{ preset.label }}
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- ШАГ 4: Ущерб -->
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between">
+                                <label class="text-xs font-bold text-[var(--text-main)] uppercase tracking-wider">
+                                    4. Величина риска (тыс. руб)
+                                </label>
+                            </div>
+
+                            <input
+                                type="number"
+                                min="0"
+                                step="10"
+                                v-model.number="impactThousand"
+                                class="w-full px-3.5 py-2.5 calc-input-custom text-base font-bold"
+                            />
+
+                            <div class="grid grid-cols-2 gap-1.5 pt-1">
+                                <button
+                                    v-for="preset in impactPresets"
+                                    :key="preset.value"
+                                    type="button"
+                                    @click="impactThousand = preset.value"
+                                    :class="['text-xs py-1 px-2 rounded border transition', impactThousand === preset.value ? 'bg-[var(--accent-gold)] text-white border-[var(--accent-gold)] font-bold' : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50']"
+                                >
+                                    {{ preset.label }}
+                                </button>
+                            </div>
+                        </div>
+
+                        <button
+                            type="submit"
+                            class="w-full py-3.5 btn-calc-submit text-xs uppercase tracking-wider"
+                        >
+                            {{ selectedQuarter ? `Рассчитать и добавить в ${getQuarterLabel(selectedQuarter)}` : 'Выберите квартал выше' }}
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Правая колонка: Сводка и результаты -->
+                <div class="lg:col-span-7 space-y-6">
+
+                    <div class="calc-card-custom p-6 space-y-6">
+                        <div class="flex items-center justify-between pb-4 border-b border-[var(--border-line)]">
+                            <div>
+                                <h3 class="font-serif text-2xl font-bold text-[var(--text-main)]">
+                                    Результаты: {{ getQuarterLabel(viewQuarter) }}
+                                </h3>
+                                <p class="text-xs text-[var(--text-muted)]">Расчет ожидаемых потерь периода {{ viewQuarter }}</p>
+                            </div>
+
+                            <div class="flex bg-[#f4f3ef] p-1 rounded-lg border border-[var(--border-line)]">
+                                <button
+                                    v-for="q in quarters"
+                                    :key="q.id"
+                                    @click="viewQuarter = q.id"
+                                    :class="['px-3 py-1 text-xs font-bold rounded transition', viewQuarter === q.id ? 'bg-white text-[var(--text-main)] shadow-sm' : 'text-[var(--text-muted)]']"
+                                >
+                                    {{ q.id }}
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 3 Блока Категорий -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div class="p-4 rounded-lg bg-rose-50 border border-rose-200">
+                                <div class="text-[11px] font-bold text-rose-800 uppercase">Высокий риск (≥60%)</div>
+                                <div class="font-serif text-2xl font-bold text-rose-950 mt-1">{{ formatRub(currentViewSummary.high) }} ₽</div>
+                                <div class="text-[10px] text-rose-700 mt-2 pt-2 border-t border-rose-200">Кол-во: {{ currentViewSummary.countHigh }}</div>
+                            </div>
+
+                            <div class="p-4 rounded-lg bg-amber-50 border border-amber-200">
+                                <div class="text-[11px] font-bold text-amber-800 uppercase">Средний риск (30–60%)</div>
+                                <div class="font-serif text-2xl font-bold text-amber-950 mt-1">{{ formatRub(currentViewSummary.medium) }} ₽</div>
+                                <div class="text-[10px] text-amber-700 mt-2 pt-2 border-t border-amber-200">Кол-во: {{ currentViewSummary.countMedium }}</div>
+                            </div>
+
+                            <div class="p-4 rounded-lg bg-emerald-50 border border-emerald-200">
+                                <div class="text-[11px] font-bold text-emerald-800 uppercase">Низкий риск (&lt;30%)</div>
+                                <div class="font-serif text-2xl font-bold text-emerald-950 mt-1">{{ formatRub(currentViewSummary.low) }} ₽</div>
+                                <div class="text-[10px] text-emerald-700 mt-2 pt-2 border-t border-emerald-200">Кол-во: {{ currentViewSummary.countLow }}</div>
+                            </div>
+                        </div>
+
+                        <!-- Итоговая панель -->
+                        <div class="bg-[#1c222b] text-white p-5 rounded-lg flex items-center justify-between">
+                            <div>
+                                <div class="text-xs text-slate-400 uppercase tracking-wider">Общие ожидаемые потери ({{ viewQuarter }}):</div>
+                                <div class="font-serif text-3xl font-bold text-[var(--accent-gold)] mt-1">{{ formatRub(currentViewSummary.total) }} ₽</div>
+                            </div>
+                            <button
+                                v-if="currentViewRisks.length > 0"
+                                @click="clearQuarter(viewQuarter)"
+                                class="text-xs bg-slate-800 hover:bg-rose-900/40 text-slate-300 border border-slate-700 px-3 py-2 rounded transition"
+                            >
+                                Очистить {{ viewQuarter }}
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Таблица рисков -->
+                    <div class="calc-card-custom p-6 space-y-4">
+                        <h4 class="font-serif text-lg font-bold text-[var(--text-main)]">Детализация рисков ({{ viewQuarter }})</h4>
+
+                        <div v-if="currentViewRisks.length === 0" class="py-8 text-center border-2 border-dashed border-slate-200 rounded text-xs text-slate-400">
+                            В {{ getQuarterLabel(viewQuarter) }} еще нет записей.
+                        </div>
+
+                        <div v-else class="overflow-x-auto">
+                            <table class="w-full text-left text-xs">
+                                <thead>
+                                    <tr class="border-b border-slate-200 text-slate-400 font-bold uppercase">
+                                        <th class="py-2">Наименование</th>
+                                        <th class="py-2">Вероятность</th>
+                                        <th class="py-2">Макс. ущерб</th>
+                                        <th class="py-2">Потери</th>
+                                        <th class="py-2 text-right"></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-100">
+                                    <tr v-for="item in currentViewRisks" :key="item.id">
+                                        <td class="py-2.5 font-bold text-[var(--text-main)]">{{ item.name }}</td>
+                                        <td class="py-2.5">{{ item.probability }}%</td>
+                                        <td class="py-2.5">{{ formatRub(item.maxLossRub) }} ₽</td>
+                                        <td class="py-2.5 font-bold text-[var(--accent-gold)]">{{ formatRub(item.expectedLossRub) }} ₽</td>
+                                        <td class="py-2.5 text-right">
+                                            <button @click="deleteRisk(item.id)" class="text-slate-400 hover:text-rose-600">✕</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ------------------- СЛАЙД 5: ТЕСТ ЗРЕЛОСТИ СУР ------------------- -->
+    <section class="section-sur-quiz" id="sur-quiz">
+        <div class="quiz-container">
+
+            <!-- Экран тестирования -->
+            <div id="quiz-screen">
+                <div class="section-header" style="margin-bottom: 24px;">
+                    <span class="hero-badge" id="section-badge">Раздел 1 из 5</span>
+                    <h2 class="section-title" id="section-title" style="font-size: 2rem;">Оценка зрелости СУР</h2>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress"></div>
+                </div>
+
+                <div id="questions-container">
+                    <!-- Вопросы генерируются через JS -->
+                </div>
+
+                <div class="quiz-controls">
+                    <button class="btn btn-outline" id="prev-btn" style="padding: 10px 24px;" disabled>Назад</button>
+                    <button class="btn btn-gold" id="next-btn" style="padding: 10px 24px;" disabled>Далее</button>
+                </div>
+            </div>
+
+            <!-- Экран результатов -->
+            <div id="result-screen" class="hidden text-center">
+                <div class="section-header" style="margin-bottom: 16px;">
+                    <span class="hero-badge">Экспресс-диагностика</span>
+                    <h2 class="section-title">Результаты оценки зрелости СУР</h2>
+                </div>
+
+                <div id="score-badge" class="score-badge">
+                    <span class="score-value" id="score-val">0</span>
+                    <span class="score-max">из 20 баллов</span>
+                </div>
+
+                <h3 id="result-level" class="card-title" style="font-size: 1.8rem; margin-bottom: 8px;">Определение уровня...</h3>
+                <p id="result-desc" class="card-desc" style="max-width: 600px; margin: 0 auto 24px auto;"></p>
+
+                <div class="breakdown-list">
+                    <div class="hero-badge" style="margin-bottom: 12px;">Детализация по разделам</div>
+                    <div id="breakdown-items"></div>
+                </div>
+
+                <button class="btn btn-gold" onclick="restartQuiz()">Пройти тест заново</button>
+            </div>
+
+        </div>
+    </section>
+
+        <!-- ------------------- МОДАЛЬНЫЕ ОКНА ------------------- -->
     <div class="t-popup" id="popupResume" role="dialog" aria-modal="true">
         <div class="t-popup__close">
             <button type="button" class="t-popup__close-button" aria-label="Закрыть">
@@ -1566,16 +2287,16 @@
             <div class="img-contain-wrapper">
                 <img class="img-contain" src="https://i.yapx.ru/eKIio.jpg" alt="Наталья Журавлева">
             </div>
-            
+
             <div class="t390__wrapper">
                 <div class="t390__uptitle">Управление рисками &amp; Финансовая устойчивость</div>
                 <h2 class="t390__title">Наталья Журавлева</h2>
-                
+
                 <div class="t390__descr">
                     <p style="margin-bottom: 12px; font-weight: 500; color: var(--accent-gold);">
                         Москва &nbsp;|&nbsp; +7 (916) 992-17-84 &nbsp;|&nbsp; zhurnatalia@mail.ru &nbsp;|&nbsp; Telegram: @Natalia19770712
                     </p>
-                    
+
                     <strong>Профессиональный профиль</strong>
                     Более 18 лет работы в сфере корпоративного Risk-Management и обеспечения финансовой устойчивости компании. Экспертиза включает построение систем ERM с нуля, кредитный анализ, оценку контрагентов, контроль банковских ковенантов, стресс-тестирование и управление ликвидностью в капиталоемких отраслях.
 
@@ -1591,7 +2312,7 @@
                     <strong>Образование и квалификация</strong>
                     Финансовый университет при Правительстве РФ (2010 г., Экономика и антикризисное управление). ISO 31000 Risk Management (2021 г.), Mini MBA EY (2020 г.).
                 </div>
-                
+
                 <div class="t390__btn-wrapper">
                     <a class="t-btnflex" href="mailto:zhurnatalia@mail.ru?subject=Сотрудничество">Связаться напрямую</a>
                 </div>
@@ -1611,7 +2332,7 @@
                 <div class="sport-center-card">
                     <div class="t390__uptitle">Энергия &amp; Дисциплина</div>
                     <h2 class="t390__title" style="font-size: 1.8rem; margin-bottom: 12px;">Спорт и увлечения</h2>
-                    
+
                     <div class="t390__descr" style="font-size: 0.88rem;">
                         <p style="margin-bottom: 8px;"><strong>Активный образ жизни</strong></p>
                         Спорт формирует высокую стрессоустойчивость, выносливость и быструю концентрацию в принятии решений:
@@ -1805,6 +2526,347 @@
                 });
             });
         });
+// Vue приложение калькулятора (Слайд 4)
+        const { createApp, ref, computed } = Vue;
+
+        createApp({
+            setup() {
+                const selectedQuarter = ref(null);
+                const viewQuarter = ref('Q1');
+                const riskName = ref('');
+                const probability = ref(30);
+                const impactThousand = ref(1500);
+                const quarterError = ref(false);
+                const riskList = ref([]);
+
+                const quarters = [
+                    { id: 'Q1', label: '1 Квартал', shortLabel: '1 кв.' },
+                    { id: 'Q2', label: '2 Квартал', shortLabel: '2 кв.' },
+                    { id: 'Q3', label: '3 Квартал', shortLabel: '3 кв.' },
+                    { id: 'Q4', label: '4 Квартал', shortLabel: '4 кв.' },
+                ];
+
+                const probabilityPresets = [
+                    { label: 'Низкая (15%)', value: 15 },
+                    { label: 'Средняя (45%)', value: 45 },
+                    { label: 'Высокая (75%)', value: 75 },
+                    { label: 'Критическая (90%)', value: 90 },
+                ];
+
+                const impactPresets = [
+                    { label: '300 тыс. ₽', value: 300 },
+                    { label: '1 млн ₽', value: 1000 },
+                    { label: '5 млн ₽', value: 5000 },
+                    { label: '15 млн ₽', value: 15000 },
+                ];
+
+                const getQuarterLabel = (qId) => {
+                    const q = quarters.find(item => item.id === qId);
+                    return q ? q.label : '';
+                };
+
+                const getImpactCategory = (prob) => {
+                    if (prob >= 60) return { key: 'high', label: 'Высокое влияние' };
+                    if (prob >= 30) return { key: 'medium', label: 'Среднее влияние' };
+                    return { key: 'low', label: 'Низкое влияние' };
+                };
+
+                const formatRub = (num) => new Intl.NumberFormat('ru-RU').format(Math.round(num || 0));
+
+                const selectQuarter = (qId) => {
+                    selectedQuarter.value = qId;
+                    quarterError.value = false;
+                };
+
+                const handleCalculate = () => {
+                    if (!selectedQuarter.value) {
+                        quarterError.value = true;
+                        return;
+                    }
+                    quarterError.value = false;
+
+                    const safeProb = Math.min(Math.max(Number(probability.value) || 0, 0), 100);
+                    const safeImpact = Math.max(Number(impactThousand.value) || 0, 0);
+                    const expectedLossRub = (safeProb * safeImpact * 1000) / 100;
+                    const category = getImpactCategory(safeProb);
+
+                    riskList.value.unshift({
+                        id: Date.now(),
+                        quarter: selectedQuarter.value,
+                        name: riskName.value.trim() || `Риск #${riskList.value.length + 1}`,
+                        probability: safeProb,
+                        impactThousand: safeImpact,
+                        maxLossRub: safeImpact * 1000,
+                        expectedLossRub,
+                        categoryKey: category.key
+                    });
+
+                    viewQuarter.value = selectedQuarter.value;
+                    riskName.value = '';
+                    impactThousand.value = 1500;
+                };
+
+                const deleteRisk = (id) => {
+                    riskList.value = riskList.value.filter(r => r.id !== id);
+                };
+
+                const clearQuarter = (qId) => {
+                    if (confirm(`Вы уверены, что хотите удалить все риски за ${getQuarterLabel(qId)}?`)) {
+                        riskList.value = riskList.value.filter(r => r.quarter !== qId);
+                    }
+                };
+
+                const quarterlySummaries = computed(() => {
+                    const summary = {
+                        Q1: { high: 0, medium: 0, low: 0, countHigh: 0, countMedium: 0, countLow: 0, total: 0 },
+                        Q2: { high: 0, medium: 0, low: 0, countHigh: 0, countMedium: 0, countLow: 0, total: 0 },
+                        Q3: { high: 0, medium: 0, low: 0, countHigh: 0, countMedium: 0, countLow: 0, total: 0 },
+                        Q4: { high: 0, medium: 0, low: 0, countHigh: 0, countMedium: 0, countLow: 0, total: 0 },
+                    };
+
+                    riskList.value.forEach((item) => {
+                        if (summary[item.quarter]) {
+                            const q = summary[item.quarter];
+                            if (item.categoryKey === 'high') {
+                                q.high += item.expectedLossRub;
+                                q.countHigh++;
+                            } else if (item.categoryKey === 'medium') {
+                                q.medium += item.expectedLossRub;
+                                q.countMedium++;
+                            } else {
+                                q.low += item.expectedLossRub;
+                                q.countLow++;
+                            }
+                            q.total += item.expectedLossRub;
+                        }
+                    });
+
+                    return summary;
+                });
+
+                const currentViewSummary = computed(() => quarterlySummaries.value[viewQuarter.value]);
+                const currentViewRisks = computed(() => riskList.value.filter(r => r.quarter === viewQuarter.value));
+
+                return {
+                    selectedQuarter,
+                    viewQuarter,
+                    riskName,
+                    probability,
+                    impactThousand,
+                    quarterError,
+                    quarters,
+                    probabilityPresets,
+                    impactPresets,
+                    getQuarterLabel,
+                    formatRub,
+                    selectQuarter,
+                    handleCalculate,
+                    deleteRisk,
+                    clearQuarter,
+                    quarterlySummaries,
+                    currentViewSummary,
+                    currentViewRisks
+                };
+            }
+        }).mount('#calculator');
+
+
+        /* --- СКРИПТ ТЕСТА ОЦЕНКИ ЗРЕЛОСТИ СУР (СЛАЙД 5) --- */
+        const quizSections = [
+            {
+                id: 1,
+                title: "Организационная структура",
+                questions: [
+                    { id: "q1", text: "1. Наличие выделенного подразделения по управлению рисками:", options: [{ text: "Да", score: 2 }, { text: "Нет", score: 0 }] },
+                    { id: "q2", text: "2. Подчиненность подразделения по управлению рисками:", options: [{ text: "Генеральному директору (ГД)", score: 2 }, { text: "Заместителю ГД (ЗГД)", score: 1 }] }
+                ]
+            },
+            {
+                id: 2,
+                title: "Независимость и подотчетность",
+                questions: [
+                    { id: "q3", text: "3. Независимость принятия решений подразделением рисков:", options: [{ text: "Да", score: 2 }, { text: "Нет", score: 0 }] },
+                    { id: "q4", text: "4. Подотчетность Совету директоров (СД):", options: [{ text: "Да", score: 2 }, { text: "Нет", score: 0 }] }
+                ]
+            },
+            {
+                id: 3,
+                title: "Нормативная база и отчетность",
+                questions: [
+                    { id: "q5", text: "5. Наличие политик по управлению рисками, утвержденных СД:", options: [{ text: "Да", score: 2 }, { text: "Нет", score: 0 }] },
+                    { id: "q6", text: "6. Ежеквартальная оценка рисков и регулярный отчет СД:", options: [{ text: "Да", score: 2 }, { text: "Нет", score: 0 }] }
+                ]
+            },
+            {
+                id: 4,
+                title: "Внутренний контроль и аудит",
+                questions: [
+                    { id: "q7", text: "7. Наличие службы внутреннего контроля (СВК):", options: [{ text: "Да", score: 2 }, { text: "Нет", score: 0 }] },
+                    { id: "q8", text: "8. Наличие службы внутреннего аудита (СВА):", options: [{ text: "Да", score: 2 }, { text: "Нет", score: 0 }] }
+                ]
+            },
+            {
+                id: 5,
+                title: "Модель управления и архитектура",
+                questions: [
+                    { id: "q9", text: "9. Соблюдение концепции трех линий защиты:", options: [{ text: "Да", score: 2 }, { text: "Нет", score: 0 }] },
+                    { id: "q10", text: "10. Системная интеграция оценки рисков в стратегические решения:", options: [{ text: "Да", score: 2 }, { text: "Нет", score: 0 }] }
+                ]
+            }
+        ];
+
+        let currentSectionIndex = 0;
+        const answers = {};
+
+        const sectionBadge = document.getElementById('section-badge');
+        const sectionTitle = document.getElementById('section-title');
+        const questionsContainer = document.getElementById('questions-container');
+        const progressBar = document.getElementById('progress');
+        const prevBtnQuiz = document.getElementById('prev-btn');
+        const nextBtnQuiz = document.getElementById('next-btn');
+
+        const quizScreen = document.getElementById('quiz-screen');
+        const resultScreen = document.getElementById('result-screen');
+
+        function renderSection() {
+            const section = quizSections[currentSectionIndex];
+            sectionBadge.textContent = `Раздел ${currentSectionIndex + 1} из ${quizSections.length}`;
+            sectionTitle.textContent = section.title;
+
+            progressBar.style.width = `${((currentSectionIndex + 1) / quizSections.length) * 100}%`;
+
+            questionsContainer.innerHTML = '';
+
+            section.questions.forEach((q) => {
+                const qCard = document.createElement('div');
+                qCard.className = 'question-card';
+
+                const title = document.createElement('div');
+                title.className = 'question-title';
+                title.textContent = q.text;
+
+                const optionsGrid = document.createElement('div');
+                optionsGrid.className = 'options-grid';
+
+                q.options.forEach((opt) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'option-btn';
+                    if (answers[q.id] === opt.score) {
+                        btn.classList.add('selected');
+                    }
+                    btn.textContent = opt.text;
+                    btn.onclick = () => selectAnswer(q.id, opt.score, optionsGrid, btn);
+                    optionsGrid.appendChild(btn);
+                });
+
+                qCard.appendChild(title);
+                qCard.appendChild(optionsGrid);
+                questionsContainer.appendChild(qCard);
+            });
+
+            updateNavigationState();
+        }
+
+        function selectAnswer(questionId, score, optionsGrid, selectedBtn) {
+            answers[questionId] = score;
+
+            const buttons = optionsGrid.querySelectorAll('.option-btn');
+            buttons.forEach(b => b.classList.remove('selected'));
+            selectedBtn.classList.add('selected');
+
+            updateNavigationState();
+        }
+
+        function updateNavigationState() {
+            const currentSection = quizSections[currentSectionIndex];
+            const allAnsweredInCurrent = currentSection.questions.every(q => answers.hasOwnProperty(q.id));
+
+            prevBtnQuiz.disabled = currentSectionIndex === 0;
+            nextBtnQuiz.disabled = !allAnsweredInCurrent;
+
+            nextBtnQuiz.textContent = currentSectionIndex === quizSections.length - 1 ? 'Завершить' : 'Далее';
+        }
+
+        prevBtnQuiz.onclick = () => {
+            if (currentSectionIndex > 0) {
+                currentSectionIndex--;
+                renderSection();
+            }
+        };
+
+        nextBtnQuiz.onclick = () => {
+            if (currentSectionIndex < quizSections.length - 1) {
+                currentSectionIndex++;
+                renderSection();
+            } else {
+                showResults();
+            }
+        };
+
+        function calculateResults() {
+            let totalScore = 0;
+            const sectionScores = quizSections.map(sec => {
+                let secScore = 0;
+                let maxSecScore = 0;
+                sec.questions.forEach(q => {
+                    secScore += answers[q.id] || 0;
+                    maxSecScore += Math.max(...q.options.map(o => o.score));
+                });
+                totalScore += secScore;
+                return {
+                    title: sec.title,
+                    score: secScore,
+                    maxScore: maxSecScore
+                };
+            });
+
+            return { totalScore, sectionScores };
+        }
+
+        function showResults() {
+            const { totalScore, sectionScores } = calculateResults();
+
+            quizScreen.classList.add('hidden');
+            resultScreen.classList.remove('hidden');
+
+            document.getElementById('score-val').textContent = totalScore;
+            const resultLevel = document.getElementById('result-level');
+            const resultDesc = document.getElementById('result-desc');
+
+            if (totalScore >= 16) {
+                resultLevel.textContent = 'Высокий уровень зрелости СУР';
+                resultDesc.textContent = 'Система управления рисками выстроена эффективно, обеспечена независимость подразделения, регулярный контроль и подотчетность Совету директоров.';
+            } else if (totalScore >= 10) {
+                resultLevel.textContent = 'Средний уровень зрелости СУР';
+                resultDesc.textContent = 'Базовые элементы системы функционируют, однако есть пробелы в независимости принятия решений, автоматизации или соблюдении трех линий защиты.';
+            } else {
+                resultLevel.textContent = 'Фрагментарный уровень зрелости СУР';
+                resultDesc.textContent = 'Система управления рисками находится на начальном этапе развития. Требуется внедрение нормативной базы, независимого контроля и регулярной отчетности на высшем уровне.';
+            }
+
+            const breakdownContainer = document.getElementById('breakdown-items');
+            breakdownContainer.innerHTML = '';
+            sectionScores.forEach(s => {
+                const item = document.createElement('div');
+                item.className = 'breakdown-item';
+                item.innerHTML = `
+                    <span style="color: var(--text-main); font-weight: 500;">${s.title}</span>
+                    <strong style="color: var(--accent-gold);">${s.score} из ${s.maxScore} баллов</strong>
+                `;
+                breakdownContainer.appendChild(item);
+            });
+        }
+
+        function restartQuiz() {
+            currentSectionIndex = 0;
+            for (let key in answers) delete answers[key];
+            resultScreen.classList.add('hidden');
+            quizScreen.classList.remove('hidden');
+            renderSection();
+        }
+
+        renderSection();
+
     </script>
 
 </body>
