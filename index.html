@@ -1146,6 +1146,421 @@
 
 
         /* ------------------- МОБИЛЬНАЯ СТАБИЛЬНОСТЬ ------------------- */
+        /* ------------------- КОММЕРЧЕСКИЙ БЛОК: УСЛУГИ И ВЫГОДА ------------------- */
+        .section-consulting,
+        .section-benefit {
+            padding: 110px 24px;
+            background-color: var(--bg-light);
+            border-top: 1px solid var(--border-line);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-consulting::before,
+        .section-benefit::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(135deg, rgba(179, 139, 67, 0.08), transparent 34%),
+                radial-gradient(circle at 85% 14%, rgba(28, 34, 43, 0.08), transparent 26%);
+            pointer-events: none;
+        }
+
+        .commercial-container {
+            max-width: 1180px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .services-shell {
+            display: grid;
+            grid-template-columns: 360px minmax(0, 1fr);
+            gap: 26px;
+            align-items: start;
+            margin-top: 44px;
+        }
+
+        .service-menu {
+            background: #fff;
+            border: 1px solid var(--border-line);
+            border-radius: 18px;
+            padding: 14px;
+            box-shadow: 0 18px 45px rgba(28, 34, 43, 0.08);
+        }
+
+        .service-tab {
+            width: 100%;
+            border: 1px solid transparent;
+            background: transparent;
+            color: var(--text-main);
+            padding: 14px;
+            border-radius: 12px;
+            text-align: left;
+            cursor: pointer;
+            transition: 0.2s ease;
+            display: grid;
+            gap: 5px;
+            font-family: var(--font-sans);
+        }
+
+        .service-tab + .service-tab {
+            margin-top: 8px;
+        }
+
+        .service-tab:hover,
+        .service-tab.active {
+            border-color: var(--border-line);
+            background: #f4f3ef;
+            transform: translateY(-1px);
+        }
+
+        .service-tab.active {
+            box-shadow: inset 3px 0 0 var(--accent-gold);
+        }
+
+        .service-tab-title {
+            font-weight: 800;
+            font-size: 0.9rem;
+            line-height: 1.35;
+        }
+
+        .service-tab-meta {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            color: var(--text-muted);
+            font-size: 0.72rem;
+            line-height: 1.35;
+        }
+
+        .service-detail {
+            background: #fff;
+            border: 1px solid var(--border-line);
+            border-radius: 22px;
+            padding: 30px;
+            box-shadow: 0 18px 45px rgba(28, 34, 43, 0.08);
+        }
+
+        .service-kicker,
+        .benefit-kicker {
+            font-family: var(--font-bebas);
+            letter-spacing: 0;
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+        }
+
+        .service-detail h3,
+        .benefit-panel h3,
+        .tariff-card h3 {
+            font-family: var(--font-serif);
+            color: var(--text-main);
+            font-size: clamp(2rem, 3vw, 3rem);
+            line-height: 1.05;
+            margin: 8px 0 14px;
+        }
+
+        .service-lead {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+            max-width: 760px;
+            margin-bottom: 22px;
+        }
+
+        .service-proof-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin: 22px 0;
+        }
+
+        .proof-box,
+        .result-box,
+        .benefit-card,
+        .tariff-card {
+            border: 1px solid var(--border-line);
+            border-radius: 14px;
+            background: #f9f8f6;
+            padding: 16px;
+        }
+
+        .proof-label {
+            color: var(--text-muted);
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .proof-text {
+            color: var(--text-main);
+            font-weight: 700;
+            line-height: 1.45;
+            font-size: 0.9rem;
+        }
+
+        .service-columns {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .result-box h4,
+        .benefit-card h4 {
+            font-family: var(--font-serif);
+            font-size: 1.45rem;
+            margin: 0 0 10px;
+            color: var(--text-main);
+        }
+
+        .result-box ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 8px;
+        }
+
+        .result-box li {
+            color: var(--text-muted);
+            line-height: 1.55;
+            font-size: 0.9rem;
+            position: relative;
+            padding-left: 18px;
+        }
+
+        .result-box li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.62em;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+        }
+
+        .tariff-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 22px;
+        }
+
+        .tariff-card {
+            background: #fff;
+        }
+
+        .tariff-card.featured {
+            background: #1c222b;
+            color: #fff;
+        }
+
+        .tariff-card.featured h3,
+        .tariff-card.featured .tariff-price {
+            color: var(--accent-gold);
+        }
+
+        .tariff-period {
+            color: var(--text-muted);
+            font-size: 0.78rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .tariff-card.featured .tariff-period,
+        .tariff-card.featured .tariff-note {
+            color: rgba(255,255,255,0.72);
+        }
+
+        .tariff-price {
+            color: var(--text-main);
+            font-family: var(--font-serif);
+            font-size: 1.9rem;
+            line-height: 1;
+            margin: 10px 0 8px;
+            font-weight: 700;
+        }
+
+        .tariff-note {
+            color: var(--text-muted);
+            line-height: 1.45;
+            font-size: 0.82rem;
+        }
+
+        .benefit-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+            gap: 26px;
+            margin-top: 44px;
+            align-items: start;
+        }
+
+        .benefit-panel {
+            background: #fff;
+            border: 1px solid var(--border-line);
+            border-radius: 22px;
+            padding: 28px;
+            box-shadow: 0 18px 45px rgba(28, 34, 43, 0.08);
+        }
+
+        .benefit-form {
+            display: grid;
+            gap: 16px;
+        }
+
+        .field-row {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .benefit-field label {
+            display: block;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 7px;
+        }
+
+        .benefit-field input,
+        .benefit-field select {
+            width: 100%;
+            border: 1px solid var(--border-line);
+            background: #f9f8f6;
+            border-radius: 10px;
+            padding: 12px 13px;
+            font-family: var(--font-sans);
+            color: var(--text-main);
+            outline: none;
+        }
+
+        .benefit-field input:focus,
+        .benefit-field select:focus {
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(179, 139, 67, 0.16);
+        }
+
+        .benefit-summary {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+
+        .benefit-card strong {
+            display: block;
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            line-height: 1;
+            color: var(--accent-gold);
+            margin-top: 8px;
+        }
+
+        .benefit-card span {
+            color: var(--text-muted);
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .benefit-total {
+            background: #1c222b;
+            color: #fff;
+            border-radius: 18px;
+            padding: 22px;
+            margin: 16px 0;
+        }
+
+        .benefit-total span {
+            display: block;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.78rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .benefit-total strong {
+            display: block;
+            color: var(--accent-gold);
+            font-family: var(--font-serif);
+            font-size: clamp(2.4rem, 5vw, 4.4rem);
+            line-height: 0.98;
+            margin-top: 8px;
+        }
+
+        .benefit-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .disclaimer-box {
+            border: 1px dashed var(--border-line);
+            background: rgba(179, 139, 67, 0.08);
+            color: var(--text-muted);
+            border-radius: 14px;
+            padding: 14px;
+            font-size: 0.82rem;
+            line-height: 1.55;
+            margin-top: 18px;
+        }
+
+        .service-mobile-select {
+            display: none;
+            margin-top: 28px;
+        }
+
+        @media (max-width: 1040px) {
+            .services-shell,
+            .benefit-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .service-menu {
+                display: none;
+            }
+
+            .service-mobile-select {
+                display: block;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .section-consulting,
+            .section-benefit {
+                padding: 80px 16px;
+            }
+
+            .service-detail,
+            .benefit-panel {
+                padding: 22px;
+                border-radius: 18px;
+            }
+
+            .service-proof-grid,
+            .service-columns,
+            .tariff-grid,
+            .benefit-summary,
+            .field-row {
+                grid-template-columns: 1fr;
+            }
+
+            .benefit-actions {
+                flex-direction: column;
+            }
+
+            .benefit-actions .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
         html,
         body {
             width: 100%;
@@ -1164,6 +1579,8 @@
         .hero,
         .section-training,
         .section-video,
+        .section-consulting,
+        .section-benefit,
         .section-calculator,
         .section-sur-quiz,
         .t-popup {
@@ -1173,6 +1590,7 @@
 
         .hero-container,
         .section-container,
+        .commercial-container,
         .quiz-container,
         #calculator #app {
             max-width: min(1080px, 100%);
@@ -1643,7 +2061,9 @@
                 <a href="#hero">Обо мне</a>
                 <a href="#training">Программы</a>
                 <a href="#video">Видео</a>
-                <a href="#calculator">Калькулятор</a>
+                <a href="#consulting">Услуги</a>
+                <a href="#benefit-calculator">Выгода</a>
+                <a href="#calculator">Риски</a>
                 <a href="#sur-quiz">Тест СУР</a>
             </nav>
         </div>
@@ -1989,6 +2409,187 @@
                 </div>
             </div>
 
+        </div>
+    </section>
+
+    <!-- ------------------- СЛАЙД 4A: КОНСАЛТИНГ И ОБУЧЕНИЕ ------------------- -->
+    <section class="section-consulting" id="consulting">
+        <div class="commercial-container" id="commercialApp">
+            <div class="section-header">
+                <span class="hero-badge">Консалтинг и обучение</span>
+                <h2 class="section-title">Услуги для финансовой устойчивости бизнеса</h2>
+                <p class="hero-subtitle" style="margin-bottom:0;">
+                    Выберите задачу компании: диагностика, внешний CFO/CRO, подготовка к финансированию, реструктуризация, дебиторка, карта рисков или обучение команды.
+                </p>
+            </div>
+
+            <div class="service-mobile-select">
+                <div class="benefit-field">
+                    <label for="serviceSelectMobile">Меню услуг</label>
+                    <select id="serviceSelectMobile" aria-label="Выбор услуги"></select>
+                </div>
+            </div>
+
+            <div class="services-shell">
+                <div class="service-menu" id="serviceMenu" aria-label="Меню услуг"></div>
+
+                <article class="service-detail" aria-live="polite">
+                    <div class="service-kicker" id="serviceType">Разовая услуга</div>
+                    <h3 id="serviceTitle">Финансовая диагностика и стресс-тест бизнеса</h3>
+                    <p class="service-lead" id="serviceLead"></p>
+
+                    <div class="service-proof-grid">
+                        <div class="proof-box">
+                            <div class="proof-label">Кому подходит</div>
+                            <div class="proof-text" id="serviceAudience"></div>
+                        </div>
+                        <div class="proof-box">
+                            <div class="proof-label">Бизнес-эффект</div>
+                            <div class="proof-text" id="serviceEffect"></div>
+                        </div>
+                        <div class="proof-box">
+                            <div class="proof-label">Базовая цена</div>
+                            <div class="proof-text" id="serviceBasePrice"></div>
+                        </div>
+                    </div>
+
+                    <div class="service-columns">
+                        <div class="result-box">
+                            <h4>Что входит</h4>
+                            <ul id="serviceIncludes"></ul>
+                        </div>
+                        <div class="result-box">
+                            <h4>Что получает клиент</h4>
+                            <ul id="serviceDeliverables"></ul>
+                        </div>
+                    </div>
+
+                    <div class="tariff-grid" id="serviceTariffs"></div>
+
+                    <div class="benefit-actions">
+                        <a class="btn btn-gold" id="serviceMailLink" href="mailto:zhurnatalia@mail.ru?subject=Запрос%20на%20услугу">Обсудить услугу</a>
+                        <a class="btn btn-outline" href="#benefit-calculator">Рассчитать выгоду</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ------------------- СЛАЙД 4B: КАЛЬКУЛЯТОР ВЫГОДЫ ------------------- -->
+    <section class="section-benefit" id="benefit-calculator">
+        <div class="commercial-container">
+            <div class="section-header">
+                <span class="hero-badge">Калькулятор выгоды</span>
+                <h2 class="section-title">Штат или внешний финансовый контур</h2>
+                <p class="hero-subtitle" style="margin-bottom:0;">
+                    Посчитайте ориентировочную экономию на найме и сценарный эффект от снижения рисков. Итог нужен для первичной оценки, а не для обещания гарантированного результата.
+                </p>
+            </div>
+
+            <div class="benefit-layout">
+                <div class="benefit-panel">
+                    <div class="benefit-kicker">Исходные данные</div>
+                    <h3>Расчет предприятия</h3>
+                    <form class="benefit-form" id="benefitForm">
+                        <div class="benefit-field">
+                            <label for="calcService">Услуга</label>
+                            <select id="calcService"></select>
+                        </div>
+
+                        <div class="field-row">
+                            <div class="benefit-field">
+                                <label for="calcPeriod">Период покупки</label>
+                                <select id="calcPeriod">
+                                    <option value="1">1 месяц</option>
+                                    <option value="3" selected>Квартал</option>
+                                    <option value="6">6 месяцев</option>
+                                    <option value="12">Год</option>
+                                </select>
+                            </div>
+                            <div class="benefit-field">
+                                <label for="calcSalary">Оклад роли gross, руб./мес.</label>
+                                <input id="calcSalary" type="number" min="0" step="10000" value="220000">
+                            </div>
+                        </div>
+
+                        <div class="field-row">
+                            <div class="benefit-field">
+                                <label for="calcRoles">Количество ролей</label>
+                                <input id="calcRoles" type="number" min="1" step="1" value="1">
+                            </div>
+                            <div class="benefit-field">
+                                <label for="calcOverhead">Накладные расходы, руб./мес.</label>
+                                <input id="calcOverhead" type="number" min="0" step="5000" value="35000">
+                            </div>
+                        </div>
+
+                        <div class="field-row">
+                            <div class="benefit-field">
+                                <label for="calcRiskBefore">Вероятность риска до работы, %</label>
+                                <input id="calcRiskBefore" type="number" min="0" max="100" step="5" value="45">
+                            </div>
+                            <div class="benefit-field">
+                                <label for="calcRiskAfter">Вероятность риска после работы, %</label>
+                                <input id="calcRiskAfter" type="number" min="0" max="100" step="5" value="25">
+                            </div>
+                        </div>
+
+                        <div class="benefit-field">
+                            <label for="calcLoss">Потенциальный ущерб риска, руб.</label>
+                            <input id="calcLoss" type="number" min="0" step="100000" value="3000000">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="benefit-panel">
+                    <div class="benefit-kicker">Результат</div>
+                    <h3>Ориентировочный эффект</h3>
+
+                    <div class="benefit-summary">
+                        <div class="benefit-card">
+                            <span>Стоимость штата</span>
+                            <strong id="staffCost">0 ₽</strong>
+                        </div>
+                        <div class="benefit-card">
+                            <span>Стоимость услуги</span>
+                            <strong id="serviceCost">0 ₽</strong>
+                        </div>
+                        <div class="benefit-card">
+                            <span>Экономия на найме</span>
+                            <strong id="salarySaving">0 ₽</strong>
+                        </div>
+                        <div class="benefit-card">
+                            <span>Снижение ожидаемых потерь</span>
+                            <strong id="riskSaving">0 ₽</strong>
+                        </div>
+                    </div>
+
+                    <div class="benefit-total">
+                        <span>Общая расчетная выгода</span>
+                        <strong id="totalBenefit">0 ₽</strong>
+                    </div>
+
+                    <div class="benefit-summary">
+                        <div class="benefit-card">
+                            <span>ROI к стоимости услуги</span>
+                            <strong id="benefitRoi">0%</strong>
+                        </div>
+                        <div class="benefit-card">
+                            <span>Рекомендованный первый шаг</span>
+                            <strong id="recommendedStep" style="font-size:1.25rem;line-height:1.15;"></strong>
+                        </div>
+                    </div>
+
+                    <div class="benefit-actions">
+                        <a class="btn btn-gold" id="calcMailLink" href="mailto:zhurnatalia@mail.ru?subject=Расчет%20выгоды%20по%20услуге">Получить консультацию</a>
+                        <a class="btn btn-outline" href="tel:+79169921784">+7 (916) 992-17-84</a>
+                    </div>
+
+                    <div class="disclaimer-box">
+                        Расчет предварительный. Он не является аудиторским заключением, публичной офертой, финансовой гарантией или обещанием одобрения кредита, лизинга, инвестиций либо реструктуризации. Точный эффект определяется после анализа документов компании.
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -2538,6 +3139,314 @@
                 });
             });
         });
+        /* --- СКРИПТ КОММЕРЧЕСКИХ УСЛУГ И КАЛЬКУЛЯТОРА ВЫГОДЫ --- */
+        const consultingServices = [
+            {
+                id: 'diagnostics',
+                title: 'Финансовая диагностика и стресс-тест бизнеса',
+                type: 'Разовая услуга',
+                role: 'Финансовый аналитик / внешний CFO',
+                salary: 180000,
+                lead: 'Экспресс-анализ P&L, cash flow, долговой нагрузки, ликвидности и устойчивости бизнеса в сценариях база, стресс и шок.',
+                audience: 'МСБ, собственники, компании с кредитами, лизингом, кассовыми разрывами или падением маржи.',
+                effect: 'Показывает запас прочности, слабые места и решения на 30-90 дней до возникновения просрочки.',
+                includes: ['P&L и cash flow', 'долговая нагрузка и DSCR', 'точка безубыточности', 'стресс-сценарии', 'карта первичных рисков'],
+                deliverables: ['отчет 10-20 страниц', 'Excel-модель', 'список действий', 'рекомендация по следующему продукту'],
+                tariffs: [
+                    { period: 'Разово', price: 120000, note: '3-5 рабочих дней' },
+                    { period: 'Квартал', price: 240000, note: 'диагностика плюс контроль внедрения' },
+                    { period: '6 месяцев', price: 420000, note: 'две волны анализа' },
+                    { period: 'Год', price: 780000, note: 'ежеквартальный стресс-тест' }
+                ],
+                step: 'Начать с диагностики'
+            },
+            {
+                id: 'fractional-cfo',
+                title: 'Внешний CFO/CRO на абонентском сопровождении',
+                type: 'Абонентское сопровождение',
+                role: 'Финансовый директор / директор по рискам',
+                salary: 300000,
+                lead: 'Регулярная финансовая и риск-функция для компании без найма постоянного директора.',
+                audience: 'Растущие компании, бизнес с долгом, лизингом, инвестиционными планами или нестабильным cash flow.',
+                effect: 'Предприятие получает управленческий контроль, бюджет, платежный календарь и риск-контур без полной стоимости штатного руководителя.',
+                includes: ['ежемесячный cash flow', 'платежный календарь', 'бюджет и план-факт', 'контроль долгов', 'риск-карта для собственника'],
+                deliverables: ['ежемесячный отчет', 'решения для собственника', 'контроль дебиторки', 'подготовка к банкам и инвесторам'],
+                tariffs: [
+                    { period: '1 месяц', price: 180000, note: '2-3 рабочих дня в месяц' },
+                    { period: 'Квартал', price: 510000, note: 'регулярный контур управления' },
+                    { period: '6 месяцев', price: 960000, note: 'сопровождение с дисконтом' },
+                    { period: 'Год', price: 1800000, note: 'годовой финансовый контур' }
+                ],
+                step: 'Запустить внешний CFO/CRO'
+            },
+            {
+                id: 'funding',
+                title: 'Подготовка к кредиту, лизингу или инвестору',
+                type: 'Проектная услуга',
+                role: 'Кредитный аналитик / инвестиционный аналитик',
+                salary: 180000,
+                lead: 'Упаковка бизнеса в формат, понятный банку, лизинговой компании или инвестору.',
+                audience: 'Компании, которым нужно финансирование, техника, оборудование, транспорт или инвестиционный проект.',
+                effect: 'Слабые места заявки выявляются до подачи документов, а переговорная позиция становится финансово обоснованной.',
+                includes: ['управленческий P&L', 'cash flow', 'DSCR', 'долговая емкость', 'стресс-тест заявки'],
+                deliverables: ['пакет доверия', 'бизнес-план', 'сценарии нагрузки', 'перечень рисков заявки'],
+                tariffs: [
+                    { period: 'Разово', price: 220000, note: '7-14 рабочих дней' },
+                    { period: 'Квартал', price: 420000, note: 'пакет плюс сопровождение переговоров' },
+                    { period: '6 месяцев', price: 720000, note: 'несколько сделок или этапов' },
+                    { period: 'Год', price: 1200000, note: 'контур привлечения финансирования' }
+                ],
+                step: 'Подготовить пакет для кредитора'
+            },
+            {
+                id: 'restructuring',
+                title: 'Антикризисное сопровождение и реструктуризация долга',
+                type: 'Проектная услуга',
+                role: 'Антикризисный менеджер',
+                salary: 240000,
+                lead: 'Расчет вариантов выхода из финансового давления и подготовка позиции для переговоров с кредитором.',
+                audience: 'Компании с просрочкой, риском просрочки, высоким долговым платежом или угрозой потери актива.',
+                effect: 'Собственник получает не эмоциональный выбор, а расчет сценариев: реструктурировать, рефинансировать, продавать актив или менять расходы.',
+                includes: ['анализ долга', 'модель платежей', 'сценарии реструктуризации', 'переговорная позиция', 'оценка последствий'],
+                deliverables: ['антикризисный план', 'позиция для банка или ЛК', 'финансовые аргументы для юриста', 'график действий'],
+                tariffs: [
+                    { period: 'Разово', price: 350000, note: '2-6 недель' },
+                    { period: 'Квартал', price: 690000, note: 'сопровождение переговоров' },
+                    { period: '6 месяцев', price: 1200000, note: 'контроль выполнения плана' },
+                    { period: 'Год', price: 2100000, note: 'антикризисный контур' }
+                ],
+                step: 'Рассчитать реструктуризацию'
+            },
+            {
+                id: 'receivables',
+                title: 'Контроль дебиторской задолженности и лимиты клиентов',
+                type: 'Настройка плюс сопровождение',
+                role: 'Специалист по дебиторской задолженности',
+                salary: 160000,
+                lead: 'Система раннего предупреждения по покупателям, отсрочкам платежа и просроченной дебиторской задолженности.',
+                audience: 'B2B-компании, поставщики, транспортные, производственные, сервисные и торговые предприятия.',
+                effect: 'Появляются лимиты клиентов, правила стоп-отгрузки и видимость опасных покупателей до кассового разрыва.',
+                includes: ['реестр дебиторки', 'сегментация клиентов', 'лимиты отсрочки', 'правила стоп-отгрузки', 'KRI-индикаторы'],
+                deliverables: ['dashboard контроля', 'регламент', 'рейтинг клиентов', 'еженедельный список отклонений'],
+                tariffs: [
+                    { period: 'Разово', price: 180000, note: 'настройка системы' },
+                    { period: 'Квартал', price: 390000, note: 'настройка плюс контроль' },
+                    { period: '6 месяцев', price: 660000, note: 'устойчивый режим мониторинга' },
+                    { period: 'Год', price: 1080000, note: 'регулярный контроль дебиторки' }
+                ],
+                step: 'Настроить контроль дебиторки'
+            },
+            {
+                id: 'risk-map',
+                title: 'Карта рисков и антикризисный план',
+                type: 'Разовая услуга',
+                role: 'Риск-менеджер',
+                salary: 200000,
+                lead: 'Систематизация финансовых, операционных, рыночных, регуляторных, кадровых, договорных и IT-рисков.',
+                audience: 'МСБ, лизинговые компании, проектные команды, бизнес в росте, кризисе или реструктуризации.',
+                effect: 'Риски становятся управляемыми: у каждого риска есть владелец, срок, мера снижения и оценка ущерба.',
+                includes: ['интервью с командой', 'матрица вероятность х ущерб', 'топ-10 критичных рисков', 'меры снижения', 'план 30-60-90'],
+                deliverables: ['карта рисков', 'реестр мероприятий', 'ответственные', 'контрольный dashboard'],
+                tariffs: [
+                    { period: 'Разово', price: 240000, note: '2-4 недели' },
+                    { period: 'Квартал', price: 450000, note: 'карта плюс контроль внедрения' },
+                    { period: '6 месяцев', price: 780000, note: 'две ревизии карты' },
+                    { period: 'Год', price: 1320000, note: 'ежеквартальное обновление' }
+                ],
+                step: 'Собрать карту рисков'
+            },
+            {
+                id: 'training',
+                title: 'Корпоративное обучение: управление рисками и финансовая устойчивость',
+                type: 'Обучение',
+                role: 'Бизнес-тренер / руководитель практикума',
+                salary: 180000,
+                lead: 'Авторские программы на практических кейсах из транспорта, лизинга, инфраструктуры и корпоративного риск-менеджмента.',
+                audience: 'Риск-департаменты, кредитные аналитики, финансовые службы, управленческие команды и руководители МСБ.',
+                effect: 'Команда учится связывать риск с P&L, ликвидностью, инвестиционными решениями и стратегией.',
+                includes: ['модули ERM', 'кредитный риск', 'финансовая устойчивость', 'инвестпроекты', 'практические кейсы'],
+                deliverables: ['однодневный интенсив', 'модульный курс', 'шаблоны риск-карт', 'шаблоны заключений и стресс-тестов'],
+                tariffs: [
+                    { period: 'Интенсив', price: 180000, note: '1 день для команды' },
+                    { period: '2 дня', price: 320000, note: 'углубленный практикум' },
+                    { period: 'Модуль', price: 520000, note: '4 занятия' },
+                    { period: 'Программа', price: 960000, note: 'корпоративный курс' }
+                ],
+                step: 'Запросить программу обучения'
+            }
+        ];
+
+        const serviceMenuEl = document.getElementById('serviceMenu');
+        const serviceSelectMobileEl = document.getElementById('serviceSelectMobile');
+        const calcServiceEl = document.getElementById('calcService');
+        const calcPeriodEl = document.getElementById('calcPeriod');
+        const calcSalaryEl = document.getElementById('calcSalary');
+        const calcRolesEl = document.getElementById('calcRoles');
+        const calcOverheadEl = document.getElementById('calcOverhead');
+        const calcRiskBeforeEl = document.getElementById('calcRiskBefore');
+        const calcRiskAfterEl = document.getElementById('calcRiskAfter');
+        const calcLossEl = document.getElementById('calcLoss');
+        let activeServiceId = consultingServices[0].id;
+
+        function formatMoney(value) {
+            return `${new Intl.NumberFormat('ru-RU').format(Math.round(value || 0))} ₽`;
+        }
+
+        function getServiceById(id) {
+            return consultingServices.find(item => item.id === id) || consultingServices[0];
+        }
+
+        function getServiceCost(service, months) {
+            if (service.id === 'training') {
+                return service.tariffs[2].price;
+            }
+            if (months === 1) {
+                const monthly = service.tariffs.find(item => item.period === '1 месяц');
+                const once = service.tariffs.find(item => item.period === 'Разово');
+                return monthly ? monthly.price : once.price;
+            }
+            if (months === 3) return service.tariffs[1].price;
+            if (months === 6) return service.tariffs[2].price;
+            return service.tariffs[3].price;
+        }
+
+        function renderServiceMenu() {
+            if (!serviceMenuEl || !serviceSelectMobileEl || !calcServiceEl) return;
+
+            serviceMenuEl.innerHTML = '';
+            serviceSelectMobileEl.innerHTML = '';
+            calcServiceEl.innerHTML = '';
+
+            consultingServices.forEach(service => {
+                const tab = document.createElement('button');
+                tab.type = 'button';
+                tab.className = `service-tab${service.id === activeServiceId ? ' active' : ''}`;
+                tab.innerHTML = `
+                    <span class="service-tab-title">${service.title}</span>
+                    <span class="service-tab-meta"><span>${service.type}</span><span>${formatMoney(service.tariffs[0].price)}</span></span>
+                `;
+                tab.addEventListener('click', () => {
+                    activeServiceId = service.id;
+                    calcServiceEl.value = service.id;
+                    renderService();
+                    renderServiceMenu();
+                    calculateBenefit();
+                });
+                serviceMenuEl.appendChild(tab);
+
+                const mobileOption = document.createElement('option');
+                mobileOption.value = service.id;
+                mobileOption.textContent = service.title;
+                serviceSelectMobileEl.appendChild(mobileOption);
+
+                const calcOption = document.createElement('option');
+                calcOption.value = service.id;
+                calcOption.textContent = service.title;
+                calcServiceEl.appendChild(calcOption);
+            });
+
+            serviceSelectMobileEl.value = activeServiceId;
+            calcServiceEl.value = activeServiceId;
+        }
+
+        function renderList(elementId, items) {
+            const element = document.getElementById(elementId);
+            if (!element) return;
+            element.innerHTML = '';
+            items.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                element.appendChild(li);
+            });
+        }
+
+        function renderService() {
+            const service = getServiceById(activeServiceId);
+            document.getElementById('serviceType').textContent = service.type;
+            document.getElementById('serviceTitle').textContent = service.title;
+            document.getElementById('serviceLead').textContent = service.lead;
+            document.getElementById('serviceAudience').textContent = service.audience;
+            document.getElementById('serviceEffect').textContent = service.effect;
+            document.getElementById('serviceBasePrice').textContent = formatMoney(service.tariffs[0].price);
+            document.getElementById('serviceMailLink').href = `mailto:zhurnatalia@mail.ru?subject=${encodeURIComponent(`Запрос на услугу: ${service.title}`)}`;
+
+            renderList('serviceIncludes', service.includes);
+            renderList('serviceDeliverables', service.deliverables);
+
+            const tariffGrid = document.getElementById('serviceTariffs');
+            tariffGrid.innerHTML = '';
+            service.tariffs.forEach((tariff, index) => {
+                const card = document.createElement('div');
+                card.className = `tariff-card${index === 1 ? ' featured' : ''}`;
+                card.innerHTML = `
+                    <div class="tariff-period">${tariff.period}</div>
+                    <div class="tariff-price">${formatMoney(tariff.price)}</div>
+                    <div class="tariff-note">${tariff.note}</div>
+                `;
+                tariffGrid.appendChild(card);
+            });
+        }
+
+        function calculateBenefit() {
+            const service = getServiceById(calcServiceEl.value);
+            const months = Number(calcPeriodEl.value) || 3;
+            const salary = Math.max(Number(calcSalaryEl.value) || service.salary, 0);
+            const roles = Math.max(Number(calcRolesEl.value) || 1, 1);
+            const overhead = Math.max(Number(calcOverheadEl.value) || 0, 0);
+            const riskBefore = Math.min(Math.max(Number(calcRiskBeforeEl.value) || 0, 0), 100);
+            const riskAfter = Math.min(Math.max(Number(calcRiskAfterEl.value) || 0, 0), 100);
+            const loss = Math.max(Number(calcLossEl.value) || 0, 0);
+
+            const monthlyStaffCost = ((salary * 1.302) + overhead) * roles;
+            const staffCost = monthlyStaffCost * months;
+            const serviceCost = getServiceCost(service, months);
+            const salarySaving = staffCost - serviceCost;
+            const expectedLossBefore = (riskBefore / 100) * loss;
+            const expectedLossAfter = (riskAfter / 100) * loss;
+            const riskSaving = Math.max(expectedLossBefore - expectedLossAfter, 0);
+            const totalBenefit = salarySaving + riskSaving;
+            const roi = serviceCost > 0 ? (totalBenefit / serviceCost) * 100 : 0;
+
+            document.getElementById('staffCost').textContent = formatMoney(staffCost);
+            document.getElementById('serviceCost').textContent = formatMoney(serviceCost);
+            document.getElementById('salarySaving').textContent = formatMoney(salarySaving);
+            document.getElementById('riskSaving').textContent = formatMoney(riskSaving);
+            document.getElementById('totalBenefit').textContent = formatMoney(totalBenefit);
+            document.getElementById('benefitRoi').textContent = `${Math.round(roi)}%`;
+            document.getElementById('recommendedStep').textContent = service.step;
+            document.getElementById('calcMailLink').href = `mailto:zhurnatalia@mail.ru?subject=${encodeURIComponent(`Расчет выгоды: ${service.title}`)}&body=${encodeURIComponent(`Здравствуйте, Наталья. Хочу обсудить услугу: ${service.title}. Ориентировочный период: ${months} мес.`)}`;
+        }
+
+        if (serviceSelectMobileEl) {
+            serviceSelectMobileEl.addEventListener('change', (event) => {
+                activeServiceId = event.target.value;
+                calcServiceEl.value = activeServiceId;
+                renderService();
+                renderServiceMenu();
+                calculateBenefit();
+            });
+        }
+
+        if (calcServiceEl) {
+            calcServiceEl.addEventListener('change', (event) => {
+                activeServiceId = event.target.value;
+                const service = getServiceById(activeServiceId);
+                calcSalaryEl.value = service.salary;
+                renderService();
+                renderServiceMenu();
+                calculateBenefit();
+            });
+        }
+
+        [calcPeriodEl, calcSalaryEl, calcRolesEl, calcOverheadEl, calcRiskBeforeEl, calcRiskAfterEl, calcLossEl].forEach((input) => {
+            if (input) input.addEventListener('input', calculateBenefit);
+            if (input) input.addEventListener('change', calculateBenefit);
+        });
+
+        renderServiceMenu();
+        renderService();
+        calculateBenefit();
+
 // Vue приложение калькулятора (Слайд 4)
         const { createApp, ref, computed } = Vue;
 
